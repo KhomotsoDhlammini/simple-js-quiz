@@ -1,4 +1,4 @@
-getUsername();
+//getUsername();
 
 
 var quiz = {
@@ -145,14 +145,14 @@ var quiz = {
   };
   window.addEventListener("load", quiz.init);
 
-function getUsername() {
-  let formData = document.getElementById("username-form");
-  formData.addEventListener("submit", (e) => {
-    e.preventDefault()
+// function getUsername() {
+//   let formData = document.getElementById("username-form");
+//   formData.addEventListener("submit", (e) => {
+//     e.preventDefault()
 
-    let username = document.getElementById("username").value;
-    console.log("username: ", username);
-  })
+//     let username = document.getElementById("username").value;
+//     console.log("username: ", username);
+//   })
 
 
-}
+// }
