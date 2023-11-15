@@ -1,6 +1,5 @@
 //getUsername();
 
-
 var quiz = {
   // (A) PROPERTIES
   // (A1) QUESTIONS & ANSWERS
@@ -176,6 +175,8 @@ function getUsername() {
     e.preventDefault()
 
     let username = document.getElementById("userName").value;
+
+    window.location.replace("http://127.0.0.1:5501/index.html")
     console.log("username: ", username);
   })
 }
