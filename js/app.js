@@ -131,7 +131,9 @@ var quiz = {
       if (quiz.now < quiz.data.length) { quiz.draw(); }
       else {
         quiz.hQn.innerHTML = `
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3></button>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+          <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3>
+        </button>
           
           
         <!-- Modal -->
