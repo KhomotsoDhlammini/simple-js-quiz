@@ -105,7 +105,7 @@ var quiz = {
       }
     },
   
-    // (D) OPTION SELECTED
+    
     select: (option) => {
       // (D1) DETACH ALL ONCLICK
       let all = quiz.hAns.getElementsByTagName("label");
