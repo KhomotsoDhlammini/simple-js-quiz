@@ -171,11 +171,11 @@ var quiz = {
 window.addEventListener("load", quiz.init);
 
 function getUsername() {
-  let formData = document.getElementById("username-form");
+  let formData = document.getElementById("userName-input");
   formData.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    let username = document.getElementById("username").value;
+    let username = document.getElementById("userName").value;
     console.log("username: ", username);
   })
 }
