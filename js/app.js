@@ -1,3 +1,6 @@
+//getUsername();
+
+
 var quiz = {
     // (A) PROPERTIES
     // (A1) QUESTIONS & ANSWERS
@@ -161,4 +164,15 @@ var quiz = {
     // }
   };
   window.addEventListener("load", quiz.init);
-  
+
+// function getUsername() {
+//   let formData = document.getElementById("username-form");
+//   formData.addEventListener("submit", (e) => {
+//     e.preventDefault()
+
+//     let username = document.getElementById("username").value;
+//     console.log("username: ", username);
+//   })
+
+
+// }
