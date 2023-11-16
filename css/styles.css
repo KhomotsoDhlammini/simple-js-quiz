@@ -165,6 +165,10 @@ body {
   border: 1px solid #c78181;
 }
 
+
+/* userinput styles start */
+
+
 #userName-input {
   width: 600px;
   padding: 30px;
@@ -204,3 +208,6 @@ body {
   margin-top: 30px;
   width: 200px;
 }
+
+
+/* userinput styles end */
