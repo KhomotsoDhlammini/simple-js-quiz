@@ -123,15 +123,6 @@ body {
 }
 
 
-/* (B) QUESTION */
-#quizQn {
-  padding: 20px;
-  background: #4c93ba;
-  color: #fff;
-  font-size: 24px;
-  border-radius: 10px;
-}
-
 /* (C) ANSWERS */
 #quizAns {
   margin: 10px 0;
