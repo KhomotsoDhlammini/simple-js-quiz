@@ -1,5 +1,5 @@
 //getUsername();
-
+let players = localStorage.getItem("players") || [];
 
 var quiz = {
     // (A) PROPERTIES
@@ -151,76 +151,89 @@ var quiz = {
       setTimeout(() => {
         if (quiz.now < quiz.data.length) { quiz.draw(); }
         else {
-          quiz.hQn.innerHTML = `<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3></button>
+          // function anotherSomething(username) {
+          //   let player = {
+          //     username: username,
+          //     score: quiz.score
+          //   }
+          //   players.push(player)
+          //   localStorage.setItem("players", JSON.stringify(players))
+          // }
+          setPlayer(quiz.score)
+          quiz.hQn.innerHTML = `
+          
+          <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+            <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3>
+          </button>
           
           
           <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  
 
-      
-      <table class="table">
-      <thead class="thead-dark">
-    <tr>
-    <th scope="col">#</th>
-      <th scope="col">Qustions</th>
-      <th scope="col">Your Answer</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>${allData[0].question}</td>
-      <td>${allData[0].answer}</td>
-      
-    </tr>
-    
-    <tr>
-      <th scope="row">2</th>
-      <td>${allData[1].question}</td>
-      <td>${allData[1].answer}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>${allData[2].question}</td>
-      <td>${allData[2].answer}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>${allData[3].question}</td>
-      <td>${allData[3].answer}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>${allData[4].question}</td>
-      <td>${allData[4].answer}</td>
-      
-    </tr>
-    </tbody>
-</table>
+                  
+                  <table class="table">
+                  <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                  <th scope="col">Qustions</th>
+                  <th scope="col">Your Answer</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>${allData[0].question}</td>
+                  <td>${allData[0].answer}</td>
+                  
+                </tr>
+                
+                <tr>
+                  <th scope="row">2</th>
+                  <td>${allData[1].question}</td>
+                  <td>${allData[1].answer}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>${allData[2].question}</td>
+                  <td>${allData[2].answer}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>${allData[3].question}</td>
+                  <td>${allData[3].answer}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>${allData[4].question}</td>
+                  <td>${allData[4].answer}</td>
+                  
+                </tr>
+                </tbody>
+            </table>
 
-      
-      
+                  
+                  
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>`;
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>`;
           quiz.hAns.innerHTML = "";
         }
       }, 1000);
@@ -235,14 +248,35 @@ var quiz = {
   };
   window.addEventListener("load", quiz.init);
 
-// function getUsername() {
-//   let formData = document.getElementById("username-form");
-//   formData.addEventListener("submit", (e) => {
-//     e.preventDefault()
-
-//     let username = document.getElementById("username").value;
-//     console.log("username: ", username);
-//   })
 
 
-// }
+getUsername();
+
+function getUsername() {
+  let formData = document.getElementById("userName-input");
+  formData.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    let username = document.getElementById("userName").value;
+    console.log("username: ", username);
+    localStorage.setItem("username", username);
+    window.location.replace("http://127.0.0.1:5501/index.html")
+    
+  })
+}
+
+
+function setPlayer(score) {
+  let player = {
+    username: localStorage.getItem("username"),
+    score: parseInt(score)
+  }
+  players.push(player)
+  localStorage.setItem("players", JSON.stringify(players))
+  console.log(localStorage)
+}
+
+
+function reloadQuiz() {
+  location.reload()
+}
