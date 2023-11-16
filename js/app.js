@@ -1,5 +1,5 @@
 //getUsername();
-
+let players = localStorage.getItem("players") || [];
 
 var quiz = {
     // (A) PROPERTIES
@@ -7,52 +7,52 @@ var quiz = {
     // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
     data: [
     {
-      q : "What is the standard distance between the target and archer in Olympics?",
-      o : [
-        "50 meters",
-        "70 meters",
-        "100 meters",
-        "120 meters"
+      q: "How many provinces does South Africa have?",
+      o: [
+        "Seven",
+        "Nine",
+        "Five",
+        "Eleven"
       ],
       a : 1 // arrays start with 0, so answer is 70 meters
     },
     {
-      q : "Which is the highest number on a standard roulette wheel?",
-      o : [
-        "22",
-        "24",
-        "32",
-        "36"
+      q: "Which of the following countries have borders with South Africa?",
+      o: [
+        "Angola",
+        "Mozambique",
+        "Zimbabwe",
+        "Lesotho"
       ],
       a : 3
     },
     {
-      q : "How much wood could a woodchuck chuck if a woodchuck would chuck wood?",
-      o : [
-        "150 KG",
-        "200 KG",
-        "350 KG",
-        "420 KG"
+      q: "Which tree is the national tree of South Africa?",
+      o: [
+        "Mahogany tree",
+        "Fir tree",
+        "Boabab tree",
+        "Yellowwood tree"
       ],
       a : 2
     },
     {
-      q : "Which is the seventh planet from the sun?",
-      o : [
-        "Uranus",
-        "Earth",
-        "Pluto",
-        "Mars"
+      q: "Which is the longest river in South Africa?",
+      o: [
+        "Orange river",
+        "White river",
+        "Yellow river",
+        "Pink river"
       ],
       a : 0
     },
     {
-      q : "Which is the largest ocean on Earth?",
-      o : [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Arctic Ocean",
-        "Pacific Ocean"
+      q: "Who was elected president in 1994?",
+      o: [
+        "Jacom Zuma",
+        "Barack Obama",
+        "F.W. de Klerk",
+        "Nelson Mandela"
       ],
       a : 3
     }
@@ -215,8 +215,8 @@ var quiz = {
 </table>
 </h5>
 
-      
-      
+                  
+                  
 
       </div>
       <div class="modal-footer justify-content-center">
@@ -243,14 +243,35 @@ localStorage.setItem('score',quiz.score);
   console.log(quiz.score);
   window.addEventListener("load", quiz.init);
 
-// function getUsername() {
-//   let formData = document.getElementById("username-form");
-//   formData.addEventListener("submit", (e) => {
-//     e.preventDefault()
-
-//     let username = document.getElementById("username").value;
-//     console.log("username: ", username);
-//   })
 
 
-// }
+getUsername();
+
+function getUsername() {
+  let formData = document.getElementById("userName-input");
+  formData.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    let username = document.getElementById("userName").value;
+    console.log("username: ", username);
+    localStorage.setItem("username", username);
+    window.location.replace("http://127.0.0.1:5501/index.html")
+    
+  })
+}
+
+
+function setPlayer(score) {
+  let player = {
+    username: localStorage.getItem("username"),
+    score: parseInt(score)
+  }
+  players.push(player)
+  localStorage.setItem("players", JSON.stringify(players))
+  console.log(localStorage)
+}
+
+
+function reloadQuiz() {
+  location.reload()
+}
