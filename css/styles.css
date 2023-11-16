@@ -122,16 +122,6 @@ body {
   color: #fff;
 }
 
-/* (A) WRAPPER */
-#quizWrap {
-  max-width: 600px;
-  margin: 0 auto;
-  /* RECOMMENDED FIXED HEIGHT IF YOU HAVE CONTENT BELOW
-  THE QUIZ */
-  /* SO THAT PAGE LAYOUT DOES NOT "JUMP" */
-  /* height: 250px; */
-
-}
 
 /* (B) QUESTION */
 #quizQn {
