@@ -121,6 +121,9 @@ var quiz = {
 
       
 
+      console.log('sdv',correct)
+      
+
 
       if (correct) {
         quiz.score++;
@@ -151,12 +154,12 @@ var quiz = {
       setTimeout(() => {
         if (quiz.now < quiz.data.length) { quiz.draw(); }
         else {
-          quiz.hQn.innerHTML = `<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3></button>
+          quiz.hQn.innerHTML = `<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>Review Your Answers<h3></button>
           
           
           <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -166,11 +169,12 @@ var quiz = {
       
 
       
+      <h5>
       <table class="table">
       <thead class="thead-dark">
     <tr>
     <th scope="col">#</th>
-      <th scope="col">Qustions</th>
+      <th scope="col">Questions</th>
       <th scope="col">Your Answer</th>
       
     </tr>
@@ -209,18 +213,21 @@ var quiz = {
     </tr>
     </tbody>
 </table>
+</h5>
 
       
       
 
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-center">
+      <h4 class="text-secondary ">You have answered ${quiz.score} of ${quiz.data.length} correctly.<h4>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Logout</button>
       </div>
     </div>
   </div>
 </div>`;
+localStorage.setItem('score',quiz.score);
           quiz.hAns.innerHTML = "";
         }
       }, 1000);
@@ -233,6 +240,7 @@ var quiz = {
     //   quiz.draw();
     // }
   };
+  console.log(quiz.score);
   window.addEventListener("load", quiz.init);
 
 // function getUsername() {
