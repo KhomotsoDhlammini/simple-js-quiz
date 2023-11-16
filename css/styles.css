@@ -123,14 +123,6 @@ body {
 }
 
 
-/* (C) ANSWERS */
-#quizAns {
-  margin: 10px 0;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 10px;
-}
-
 #quizAns input[type=radio] {
   display: none;
 }
