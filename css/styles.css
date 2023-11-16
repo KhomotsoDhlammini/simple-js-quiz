@@ -92,11 +92,6 @@ body {
   color: #fff;
 }
 
-
-#quizAns input[type=radio] {
-  display: none;
-}
-
 #quizAns label {
   background: #fafafa;
   border: 1px solid #eee;
