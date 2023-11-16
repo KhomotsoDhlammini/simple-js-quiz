@@ -92,12 +92,6 @@ body {
   color: #fff;
 }
 
-/* PAGE & BODY */
-* {
-  font-family: arial, sans-serif;
-  box-sizing: border-box;
-}
-
 
 #quizAns input[type=radio] {
   display: none;
