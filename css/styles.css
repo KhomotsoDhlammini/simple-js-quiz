@@ -14,6 +14,8 @@ body {
   background-position: center;
   background-size: cover;
   text-align: center;
+  background-color: #43bccd;
+  background-blend-mode: multiply;
 }
 
 
