@@ -19,11 +19,39 @@
 <body>
 
 
-    <form id="userName-input">
-        <h1>Enter Username</h1>
-        <input type="text" name="userName" id="userName" placeholder=" eg: Khomotso" required>
-        <button type="submit" id="submit">Start Quiz</button>
-    </form>
+    <div class="container" id="username-form-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="userName-input">
+                    <h1>Enter Username</h1>
+                    <input type="text" name="userName" id="userName" placeholder=" eg: Khomotso" required>
+                    <button type="submit" id="submit">Start Quiz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container score-board" id="score-board">
+        <h2>Score Board</h2>
+        <div class="row">
+            <div class="col-lg-6 col-6 text-start">
+                <p>Steve</p>
+            </div>
+            <div class="col-lg-6 col-6 text-end">
+                <p>4/5</p>
+            </div>
+            <hr>
+
+            <div class="col-lg-6 col-6 text-start">
+                <p>Sthabile</p>
+            </div>
+            <div class="col-lg-6 col-6 text-end">
+                <p>3/5</p>
+            </div>
+            <hr>
+
+        </div>
+    </div>
     
         
     <script src="./js/app.js"></script>
