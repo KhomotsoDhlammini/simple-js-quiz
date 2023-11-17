@@ -1,10 +1,8 @@
 //getUsername();
 let players = JSON.parse(localStorage.getItem("players") || "[]");
 
+
 var quiz = {
-    // (A) PROPERTIES
-    // (A1) QUESTIONS & ANSWERS
-    // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
     data: [
     {
       q: "How many provinces does South Africa have?",
@@ -14,7 +12,7 @@ var quiz = {
         "Five",
         "Eleven"
       ],
-      a : 1 // arrays start with 0, so answer is 70 meters
+      a : 1 
     },
     {
       q: "Which of the following countries have borders with South Africa?",
@@ -58,14 +56,14 @@ var quiz = {
     }
     ],
   
-    // (A2) HTML ELEMENTS
-    hWrap: null, // HTML quiz container
-    hQn: null, // HTML question wrapper
-    hAns: null, // HTML answers wrapper
+    
+    hWrap: null, 
+    hQn: null, 
+    hAns: null, 
   
-    // (A3) GAME FLAGS
-    now: 0, // current question
-    score: 0, // current score
+    
+    now: 0, 
+    score: 0, 
   
     // (B) INIT QUIZ HTML
     init: () => {
@@ -121,22 +119,24 @@ var quiz = {
 
       
 
-      console.log('sdv',correct)
+      let answer;
       
 
 
       if (correct) {
         quiz.score++;
         option.classList.add("correct");
+        answer="Correct";
       } else {
         option.classList.add("wrong");
+        answer="Incorrect"
       }
 
       let qAndA = [];
 
       qAndA.push({
         question:quiz.data[quiz.now].q,
-        answer:correct
+        answer:answer
       });
 
       let existingdata = JSON.parse(localStorage.getItem('qAndA')) || [];
@@ -222,9 +222,8 @@ var quiz = {
 
       </div>
       <div class="modal-footer justify-content-center">
-      <h4 class="text-secondary ">You have answered ${quiz.score} of ${quiz.data.length} correctly.<h4>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Logout</button>
+      <h4 class="text-secondary ">${localStorage.getItem('username')}! You have answered ${quiz.score} of ${quiz.data.length} correctly.<h4>
+        <button type="button" class="btn btn-primary" onclick="removeQandA()"><a class="text-white" href="./userInput.html">Restart Quiz</a></button>
       </div>
     </div>
   </div>
@@ -234,19 +233,12 @@ localStorage.setItem('score',quiz.score);
         }
       }, 1000);
     },
-  
-    // (E) RESTART QUIZ
-    // reset : () => {
-    //   quiz.now = 0;
-    //   quiz.score = 0;
-    //   quiz.draw();
-    // }
   };
   console.log(quiz.score);
   window.addEventListener("load", quiz.init);
 
 
-
+displayLadderBoard()
 getUsername();
 
 function getUsername() {
@@ -261,7 +253,9 @@ function getUsername() {
     
   })
 }
-
+function removeQandA(){
+  localStorage.removeItem('qAndA');
+}
 
 function setPlayer(score) {
   let player = {
@@ -273,6 +267,22 @@ function setPlayer(score) {
   console.log(localStorage)
 }
 
+function displayLadderBoard() {
+  let scoreDisplay = document.getElementById("scoreDisplay");
+  scoreDisplay.innerHTML = "";
+
+  for (let i = 0; i < players.length; i++) {
+    scoreDisplay.innerHTML += `
+    <div class="col-lg-6 col-6 text-start">
+        <p>${players[i].username}</p>
+    </div>
+    <div class="col-lg-6 col-6 text-end">
+        <p>${players[i].score} / 5</p>
+    </div>
+    <hr>
+    `
+  }
+}
 
 function reloadQuiz() {
   location.reload()
