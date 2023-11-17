@@ -121,6 +121,9 @@ var quiz = {
 
       
 
+      console.log('sdv',correct)
+      
+
 
       if (correct) {
         quiz.score++;
@@ -151,89 +154,80 @@ var quiz = {
       setTimeout(() => {
         if (quiz.now < quiz.data.length) { quiz.draw(); }
         else {
-          // function anotherSomething(username) {
-          //   let player = {
-          //     username: username,
-          //     score: quiz.score
-          //   }
-          //   players.push(player)
-          //   localStorage.setItem("players", JSON.stringify(players))
-          // }
-          setPlayer(quiz.score)
-          quiz.hQn.innerHTML = `
-          
-          <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
-            <h3>You have answered ${quiz.score} of ${quiz.data.length} correctly.<h3>
-          </button>
+          quiz.hQn.innerHTML = `<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>Review Your Answers<h3></button>
           
           
           <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                  
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+
+      
+      <h5>
+      <table class="table">
+      <thead class="thead-dark">
+    <tr>
+    <th scope="col">#</th>
+      <th scope="col">Questions</th>
+      <th scope="col">Your Answer</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>${allData[0].question}</td>
+      <td>${allData[0].answer}</td>
+      
+    </tr>
+    
+    <tr>
+      <th scope="row">2</th>
+      <td>${allData[1].question}</td>
+      <td>${allData[1].answer}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>${allData[2].question}</td>
+      <td>${allData[2].answer}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>${allData[3].question}</td>
+      <td>${allData[3].answer}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>${allData[4].question}</td>
+      <td>${allData[4].answer}</td>
+      
+    </tr>
+    </tbody>
+</table>
+</h5>
 
                   
-                  <table class="table">
-                  <thead class="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                  <th scope="col">Qustions</th>
-                  <th scope="col">Your Answer</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>${allData[0].question}</td>
-                  <td>${allData[0].answer}</td>
-                  
-                </tr>
-                
-                <tr>
-                  <th scope="row">2</th>
-                  <td>${allData[1].question}</td>
-                  <td>${allData[1].answer}</td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>${allData[2].question}</td>
-                  <td>${allData[2].answer}</td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>${allData[3].question}</td>
-                  <td>${allData[3].answer}</td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>${allData[4].question}</td>
-                  <td>${allData[4].answer}</td>
-                  
-                </tr>
-                </tbody>
-            </table>
-
-                  
                   
 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>`;
+      </div>
+      <div class="modal-footer justify-content-center">
+      <h4 class="text-secondary ">You have answered ${quiz.score} of ${quiz.data.length} correctly.<h4>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+localStorage.setItem('score',quiz.score);
           quiz.hAns.innerHTML = "";
         }
       }, 1000);
@@ -246,6 +240,7 @@ var quiz = {
     //   quiz.draw();
     // }
   };
+  console.log(quiz.score);
   window.addEventListener("load", quiz.init);
 
 
