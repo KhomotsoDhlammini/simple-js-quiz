@@ -1,5 +1,5 @@
 //getUsername();
-let players = localStorage.getItem("players") || [];
+let players = JSON.parse(localStorage.getItem("players") || "[]");
 
 var quiz = {
     // (A) PROPERTIES
@@ -154,6 +154,8 @@ var quiz = {
       setTimeout(() => {
         if (quiz.now < quiz.data.length) { quiz.draw(); }
         else {
+          console.log("setting score")
+          setPlayer(quiz.score)
           quiz.hQn.innerHTML = `<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h3>Review Your Answers<h3></button>
           
           
