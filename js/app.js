@@ -1,5 +1,5 @@
 //getUsername();
-let players = localStorage.getItem("players") || [];
+let players = JSON.parse(localStorage.getItem("players") || "[]");
 
 var quiz = {
     // (A) PROPERTIES
